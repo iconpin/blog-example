@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_063116) do
+ActiveRecord::Schema.define(version: 2018_06_14_071738) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string "email", null: false
+    t.text "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_authors_on_email", unique: true
+  end
 
   create_table "pages", force: :cascade do |t|
     t.text "title", null: false
@@ -18,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_06_14_063116) do
     t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "author_id", null: false
     t.index ["title"], name: "index_pages_on_title", unique: true
   end
 
