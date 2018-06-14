@@ -1,5 +1,6 @@
 class Page < ApplicationRecord
   validates :title, uniqueness: true, presence: true
 
-  belongs_to :author
+  has_many :authorings
+  has_many :authors, through: :authorings
 end
