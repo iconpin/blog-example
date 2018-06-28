@@ -5,7 +5,10 @@
     <header>
       <%= content_tag :h2, page.title %>
       <%= content_tag :p do %>
-        Authored by <%= page.author_names.join(", ") %>
+        Authored by
+        <% page.authors.each do |author| %>
+          <%= link_to author.name, author %>
+        <% end %>
       <% end %>
     </header>
     <main>
