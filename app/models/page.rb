@@ -3,4 +3,8 @@ class Page < ApplicationRecord
 
   has_many :authorings
   has_many :authors, through: :authorings
+
+  def author_names
+    authors.map(&:name)
+  end
 end

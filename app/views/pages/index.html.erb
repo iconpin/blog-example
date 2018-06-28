@@ -1,0 +1,15 @@
+<h1>Pages</h1>
+
+<% @pages.each do |page| %>
+  <article>
+    <header>
+      <%= content_tag :h2, page.title %>
+      <%= content_tag :p do %>
+        Authored by <%= page.author_names.join(", ") %>
+      <% end %>
+    </header>
+    <main>
+      <%= content_tag :p, page.text %>
+    </main>
+  </article>
+<% end %>
